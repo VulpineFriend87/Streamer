@@ -1,0 +1,54 @@
+<!-- Code by Vulpine (https://vulpine.pro) and licensed under the MIT license -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Streamer Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="../static/js/admin.js" defer></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/admin.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Media Manager</h1>
+            <div class="actions">
+                <div class="normal-actions">
+                    <button id="deselect-btn" class="button">
+                        <span class="material-icons">clear</span>
+                        Deselect
+                    </button>
+                </div>
+                <div class="selection-actions">
+                    <button id="select-all" class="button">
+                        <span class="material-icons">select_all</span>
+                        Select All
+                    </button>
+                    <button id="deselect-all" class="button">
+                        <span class="material-icons">clear_all</span>
+                        Deselect All
+                    </button>
+                    <button id="delete-selected" class="button danger">
+                        <span class="material-icons">delete</span>
+                        Delete Selected
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="drop-zone">
+            <p>Drag and drop files here or click to upload</p>
+            <input type="file" id="file-input" multiple style="display: none;">
+            <div class="drop-zone-overlay"></div>
+        </div>
+
+        <div id="media-list" class="media-grid"></div>
+    </div>
+
+</body>
+</html>

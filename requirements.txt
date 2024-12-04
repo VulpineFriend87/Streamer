@@ -1,0 +1,7 @@
+# Code by Vulpine (https://vulpine.pro) and licensed under the MIT license
+
+Flask
+Flask-SocketIO
+python-socketio
+Werkzeug
+python-engineio

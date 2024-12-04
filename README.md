@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/VulpineFriend87/Streamer/refs/heads/main/static/images/logo.png" width="200px" height="200px">
+    <img src="https://raw.githubusercontent.com/VulpineFriend87/Streamer/refs/heads/main/static/images/logo.png">
 </p>
 
 ---

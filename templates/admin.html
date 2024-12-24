@@ -1,17 +1,13 @@
 <!-- Code by Vulpine (https://vulpine.pro) and licensed under the MIT license -->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Streamer Admin</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    <script src="../static/js/admin.js" defer></script>
-
+    <title>Streamer Admin</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/admin.css">
-    
 </head>
 <body>
     <div class="container">
@@ -19,10 +15,15 @@
             <h1>Media Manager</h1>
             <div class="actions">
                 <div class="normal-actions">
+                    <button id="upload-btn" class="button">
+                        <span class="material-icons">upload</span>
+                        Upload
+                    </button>
                     <button id="deselect-btn" class="button">
                         <span class="material-icons">clear</span>
                         Deselect
                     </button>
+                    <input type="file" id="file-input" multiple style="display: none;">
                 </div>
                 <div class="selection-actions">
                     <button id="select-all" class="button">
@@ -41,14 +42,101 @@
             </div>
         </div>
 
-        <div id="drop-zone">
-            <p>Drag and drop files here or click to upload</p>
-            <input type="file" id="file-input" multiple style="display: none;">
-            <div class="drop-zone-overlay"></div>
+        <div id="media-list" class="media-grid"></div>
+
+        <!-- File Info Modal -->
+        <div class="modal-overlay" id="file-info-modal">
+            <div class="modal">
+                <div class="modal-preview">
+                    <img id="file-preview" src="" alt="">
+                </div>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="title-wrapper">
+                            <div class="filename-edit">
+                                <h2 class="modal-title" id="file-title"></h2>
+                                <textarea class="title-input" id="file-title-input" style="display: none;" rows="2"></textarea>
+                                <button class="edit-button" id="edit-title-btn">
+                                    <span class="material-icons">edit</span>
+                                </button>
+                                <button class="save-button" id="save-title-btn" style="display: none;">
+                                    <span class="material-icons">check</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-grid">
+                            <div class="modal-grid-label">Type</div>
+                            <div class="modal-grid-value" id="file-type"></div>
+                            <div class="modal-grid-label">Last Modified</div>
+                            <div class="modal-grid-value" id="file-modified"></div>
+                            <div class="modal-grid-label">Location</div>
+                            <div class="modal-grid-value" id="file-location"></div>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="button" id="close-info-modal-btn">
+                            <span class="material-icons">close</span>
+                            Close
+                        </button>
+                        <button class="button danger" id="show-delete-confirmation-modal-btn">
+                            <span class="material-icons">delete</span>
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div id="media-list" class="media-grid"></div>
+        <div class="modal-overlay" id="delete-confirmation-modal">
+            <div class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Delete Confirmation</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete the selected files?</p>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="button" id="close-delete-modal-btn">
+                            <span class="material-icons">close</span>
+                            Cancel
+                        </button>
+                        <button class="button danger" id="confirm-delete-btn">
+                            <span class="material-icons">delete</span>
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="selected-delete-confirmation-modal">
+            <div class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Delete Confirmation</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete the selected files?</p>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="button" id="close-selected-delete-modal-btn">
+                            <span class="material-icons">close</span>
+                            Cancel
+                        </button>
+                        <button class="button danger" id="confirm-selected-delete-btn">
+                            <span class="material-icons">delete</span>
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="../static/js/admin.js"></script>
 </body>
 </html>

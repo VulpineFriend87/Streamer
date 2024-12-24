@@ -81,11 +81,61 @@ Streamer/
 │   │   ├── admin.js   # Admin panel functionality
 │   │   └── index.js   # Main interface functionality
 │   ├── images/        # Static images
-│   └── uploads/       # Uploaded media files
+│   ├── media/         # Uploaded media files
+|   └── songs/         # Uploaded song files
 └── templates/
     ├── admin.html     # Admin panel template
     └── index.html     # Main interface template
 ```
+
+## Tutorial
+
+### 1. Accessing the Application
+
+- **Main Interface**: Open your web browser and navigate to `http://<your-ip>:5763/` to view the streamed content.
+- **Admin Panel**: Access the admin panel by navigating to `http://<your-ip>:5763/admin` to manage media content.
+
+### 2. Uploading Media
+
+1. In the **Admin Panel**, click the **Upload** button.
+2. Drag and drop your media files into the upload area or click to browse and select files from your device.
+3. Once uploaded, your media will appear in the **Media List**.
+
+### 3. Managing Media Files
+
+- **Opening File Info**:
+  - Click the three dots (`⋮`) on a media item's entry in the **Media List** to open the file info panel.
+  - In the file info panel, you can preview the media, rename it, or delete it.
+
+- **Renaming a File**:
+  1. In the file info panel, click the pencil (`✏️`) icon next to the file name.
+  2. Enter the new name in the input field.
+  3. Click the confirm (`✔️`) icon to apply the changes.
+
+- **Deleting a File**:
+  1. In the file info panel, click the **Delete** button.
+  2. Confirm the deletion when prompted to remove the file.
+
+### 4. Selecting and Bulk Deleting Files
+
+1. In the **Media List**, select multiple files by checking the boxes next to each desired file.
+2. Once files are selected, new buttons will appear at the top of the page.
+3. Click the **Delete Selected** button to remove all selected files simultaneously.
+4. Confirm the deletion when prompted to finalize the action.
+
+### 5. Real-time Updates
+
+- Any changes made in the **Admin Panel** (such as uploading, renaming, or deleting media) will instantly reflect on the **Main Interface** without needing to refresh the page.
+
+### 6. Accessing from Other Devices
+
+1. Ensure your device is connected to the same local network as the server.
+2. Find your computer's local IP address:
+   - **Windows**: Run `ipconfig` in Command Prompt.
+   - **Linux/Mac**: Run `ifconfig` in Terminal.
+3. Access the application on other devices using the local IP:
+   - **Main Interface**: `http://<your-ip>:5763/`
+   - **Admin Panel**: `http://<your-ip>:5763/admin`
 
 ## Credits
 
